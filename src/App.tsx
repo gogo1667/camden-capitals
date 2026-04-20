@@ -7,8 +7,8 @@ import { WrongAnswerOverlay } from "./components/WrongAnswerOverlay";
 import "./App.css";
 import { ROUNDS_PER_GAME, buildRounds, type QuizRound } from "./utils/game";
 
-const CELEBRATION_MS = 1500;
-const WRONG_MESSAGE_MS = 1000;
+const CELEBRATION_MS = 2000;
+const WRONG_MESSAGE_MS = 2000;
 
 function App() {
   const [rounds, setRounds] = useState<QuizRound[]>(() => buildRounds());
