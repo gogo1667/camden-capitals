@@ -1,0 +1,413 @@
+.app {
+  margin: 0 auto;
+  max-width: 760px;
+  padding: 2rem 1rem 4rem;
+}
+
+h1 {
+  margin: 0;
+  color: #102542;
+  text-align: center;
+}
+
+.subtitle {
+  text-align: center;
+  margin: 0.75rem 0 2rem;
+  color: #334e68;
+  font-size: 1.1rem;
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 18px;
+  border: 3px solid #d9e2ec;
+  padding: 1.25rem;
+  box-shadow: 0 12px 20px rgba(16, 37, 66, 0.08);
+}
+
+.start-card,
+.game-over {
+  text-align: center;
+}
+
+.scoreboard {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.chip {
+  margin: 0;
+  font-weight: 700;
+  color: #102542;
+  background: #f0f4f8;
+  border: 2px solid #bcccdc;
+  border-radius: 999px;
+  padding: 0.5rem 1rem;
+}
+
+.question-card h2 {
+  margin: 0.25rem 0 1rem;
+  color: #102542;
+  font-size: 2rem;
+}
+
+.prompt {
+  margin: 0;
+  color: #486581;
+  font-weight: 600;
+}
+
+.answer-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.answer-btn,
+.primary-btn {
+  border: 3px solid #829ab1;
+  border-radius: 14px;
+  background: #f8fbff;
+  color: #102542;
+  font-size: 1rem;
+  font-weight: 700;
+  min-height: 58px;
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+}
+
+.answer-btn:hover:not(:disabled),
+.primary-btn:hover {
+  background: #d9e2ec;
+}
+
+.answer-btn.selected {
+  border-color: #486581;
+  background: #d9e2ec;
+}
+
+.answer-btn:disabled {
+  cursor: default;
+  opacity: 0.9;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(16, 37, 66, 0.45);
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+}
+
+.overlay-card {
+  background: #ffffff;
+  border: 4px solid #f0b429;
+  border-radius: 18px;
+  width: min(360px, 92vw);
+  text-align: center;
+  padding: 1rem;
+}
+
+.overlay-card h3 {
+  margin: 0 0 0.25rem;
+  color: #102542;
+}
+
+.overlay-card p {
+  margin: 0 0 0.75rem;
+}
+
+.dance {
+  animation: popIn 300ms ease-out, dancePulse 450ms ease-in-out infinite alternate;
+}
+
+.stick-figure-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.nephew-photo {
+  width: 130px;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 0;
+  border: 0;
+  margin: 0 auto;
+}
+
+.stick-body {
+  position: relative;
+  width: 120px;
+  height: 135px;
+  margin-top: -2px;
+}
+
+.stick-torso,
+.stick-arm,
+.stick-leg {
+  position: absolute;
+  background: #243b53;
+  border-radius: 999px;
+}
+
+.stick-torso {
+  width: 10px;
+  height: 56px;
+  left: 55px;
+  top: 10px;
+}
+
+.stick-arm {
+  width: 52px;
+  height: 8px;
+  top: 28px;
+  transform-origin: center;
+}
+
+.stick-arm-left {
+  left: 10px;
+  transform: rotate(20deg);
+  animation: armLeftDance 360ms ease-in-out infinite alternate;
+}
+
+.stick-arm-right {
+  left: 58px;
+  transform: rotate(-20deg);
+  animation: armRightDance 360ms ease-in-out infinite alternate;
+}
+
+.stick-leg {
+  width: 54px;
+  height: 9px;
+  top: 74px;
+}
+
+.stick-leg-left {
+  left: 9px;
+  transform: rotate(22deg);
+  animation: legLeftDance 400ms ease-in-out infinite alternate;
+}
+
+.stick-leg-right {
+  left: 57px;
+  transform: rotate(-22deg);
+  animation: legRightDance 400ms ease-in-out infinite alternate;
+}
+
+.final-score {
+  margin-bottom: 1rem;
+  color: #243b53;
+}
+
+.wrong-overlay-card {
+  border-color: #ef4444;
+}
+
+.slap-scene {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0.2rem;
+  margin-top: 0.35rem;
+  transform: scale(0.82);
+  transform-origin: top center;
+}
+
+.slap-character {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.slap-head {
+  width: 84px;
+  height: 84px;
+  object-fit: cover;
+}
+
+.slap-arm {
+  position: absolute;
+  width: 38px;
+  height: 7px;
+  background: #243b53;
+  border-radius: 999px;
+  top: 97px;
+}
+
+.slap-impact {
+  margin-top: 72px;
+  font-weight: 800;
+  color: #b91c1c;
+  transform: rotate(-8deg);
+  animation: impactPop 350ms ease-in-out infinite alternate;
+}
+
+.slap-torso {
+  width: 9px;
+  height: 45px;
+  background: #243b53;
+  border-radius: 999px;
+  margin-top: 3px;
+}
+
+.slap-arm-left {
+  right: 46px;
+  transform: rotate(165deg);
+}
+
+.slap-arm-right {
+  left: 46px;
+  transform: rotate(15deg);
+}
+
+.slap-arm-hit {
+  transform-origin: left center;
+  animation: slapArmHit 280ms ease-in-out 2;
+}
+
+.slap-leg {
+  position: absolute;
+  width: 36px;
+  height: 8px;
+  background: #243b53;
+  border-radius: 999px;
+  top: 143px;
+}
+
+.slap-leg-left {
+  right: 48px;
+  transform: rotate(150deg);
+}
+
+.slap-leg-right {
+  left: 48px;
+  transform: rotate(30deg);
+}
+
+.grace {
+  margin-right: -4px;
+}
+
+.camden {
+  margin-left: -12px;
+}
+
+.camden-shake {
+  animation: camdenShake 260ms ease-in-out 3;
+}
+
+@keyframes popIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes dancePulse {
+  from {
+    transform: rotate(-2deg) translateY(-2px);
+  }
+  to {
+    transform: rotate(2deg) translateY(2px);
+  }
+}
+
+@keyframes armLeftDance {
+  from {
+    transform: rotate(20deg);
+  }
+  to {
+    transform: rotate(-28deg);
+  }
+}
+
+@keyframes armRightDance {
+  from {
+    transform: rotate(-20deg);
+  }
+  to {
+    transform: rotate(28deg);
+  }
+}
+
+@keyframes legLeftDance {
+  from {
+    transform: rotate(22deg);
+  }
+  to {
+    transform: rotate(4deg);
+  }
+}
+
+@keyframes legRightDance {
+  from {
+    transform: rotate(-22deg);
+  }
+  to {
+    transform: rotate(-4deg);
+  }
+}
+
+@keyframes slapArmHit {
+  from {
+    transform: rotate(6deg) translateX(0);
+  }
+  to {
+    transform: rotate(-10deg) translateX(52px);
+  }
+}
+
+@keyframes impactPop {
+  from {
+    transform: rotate(-8deg) scale(0.9);
+  }
+  to {
+    transform: rotate(6deg) scale(1.08);
+  }
+}
+
+@keyframes camdenShake {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(5px);
+  }
+  50% {
+    transform: translateX(-6px);
+  }
+  75% {
+    transform: translateX(4px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@media (max-width: 640px) {
+  .overlay-card {
+    width: min(330px, 92vw);
+    padding: 0.85rem;
+  }
+
+  .slap-scene {
+    transform: scale(0.74);
+  }
+
+  .answer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .scoreboard {
+    flex-direction: column;
+  }
+}

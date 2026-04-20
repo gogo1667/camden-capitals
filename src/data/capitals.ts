@@ -1,0 +1,42 @@
+export type CapitalEntry = {
+  country: string;
+  capital: string;
+};
+
+export const CAPITALS: CapitalEntry[] = [
+  { country: "Canada", capital: "Ottawa" },
+  { country: "United States", capital: "Washington, D.C." },
+  { country: "Mexico", capital: "Mexico City" },
+  { country: "Brazil", capital: "Brasilia" },
+  { country: "Argentina", capital: "Buenos Aires" },
+  { country: "United Kingdom", capital: "London" },
+  { country: "France", capital: "Paris" },
+  { country: "Germany", capital: "Berlin" },
+  { country: "Italy", capital: "Rome" },
+  { country: "Spain", capital: "Madrid" },
+  { country: "Portugal", capital: "Lisbon" },
+  { country: "Netherlands", capital: "Amsterdam" },
+  { country: "Belgium", capital: "Brussels" },
+  { country: "Switzerland", capital: "Bern" },
+  { country: "Austria", capital: "Vienna" },
+  { country: "Norway", capital: "Oslo" },
+  { country: "Sweden", capital: "Stockholm" },
+  { country: "Finland", capital: "Helsinki" },
+  { country: "Poland", capital: "Warsaw" },
+  { country: "Greece", capital: "Athens" },
+  { country: "Turkey", capital: "Ankara" },
+  { country: "Egypt", capital: "Cairo" },
+  { country: "Kenya", capital: "Nairobi" },
+  { country: "South Africa", capital: "Pretoria" },
+  { country: "Nigeria", capital: "Abuja" },
+  { country: "India", capital: "New Delhi" },
+  { country: "China", capital: "Beijing" },
+  { country: "Japan", capital: "Tokyo" },
+  { country: "South Korea", capital: "Seoul" },
+  { country: "Thailand", capital: "Bangkok" },
+  { country: "Vietnam", capital: "Hanoi" },
+  { country: "Australia", capital: "Canberra" },
+  { country: "New Zealand", capital: "Wellington" },
+  { country: "Saudi Arabia", capital: "Riyadh" },
+  { country: "United Arab Emirates", capital: "Abu Dhabi" },
+];
