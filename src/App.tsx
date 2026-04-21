@@ -11,6 +11,7 @@ const CELEBRATION_MS = 2000;
 const WRONG_MESSAGE_MS = 2000;
 
 function App() {
+  const camdenHeadUrl = `${import.meta.env.BASE_URL}camden-head.png`;
   const [rounds, setRounds] = useState<QuizRound[]>(() => buildRounds());
   const [currentIndex, setCurrentIndex] = useState(0);
   const [score, setScore] = useState(0);
@@ -18,6 +19,7 @@ function App() {
   const [showCelebration, setShowCelebration] = useState(false);
   const [showWrongOverlay, setShowWrongOverlay] = useState(false);
   const [hasStarted, setHasStarted] = useState(false);
+  const [showSplash, setShowSplash] = useState(true);
 
   const currentRound = rounds[currentIndex];
   const isGameOver = currentIndex >= rounds.length;
@@ -74,6 +76,27 @@ function App() {
 
   return (
     <main className="app">
+      {showSplash && (
+        <section className="card splash-card">
+          <h2>Welcome to Camden Capitals</h2>
+          <div className="splash-dance-wrap">
+            <img src={camdenHeadUrl} alt="Camden dancing" className="splash-head" />
+            <div className="splash-body" aria-hidden>
+              <span className="splash-torso" />
+              <span className="splash-arm splash-arm-left" />
+              <span className="splash-arm splash-arm-right" />
+              <span className="splash-leg splash-leg-left" />
+              <span className="splash-leg splash-leg-right" />
+            </div>
+          </div>
+          <button type="button" className="primary-btn" onClick={() => setShowSplash(false)}>
+            Let&apos;s Go!
+          </button>
+        </section>
+      )}
+
+      {!showSplash && (
+        <>
       <h1>Camden&apos;s Country Capitals</h1>
       <p className="subtitle">{subtitle}</p>
 
@@ -105,6 +128,8 @@ function App() {
 
       {hasStarted && isGameOver && (
         <GameOver score={score} totalRounds={ROUNDS_PER_GAME} onPlayAgain={handlePlayAgain} />
+      )}
+        </>
       )}
     </main>
   );
