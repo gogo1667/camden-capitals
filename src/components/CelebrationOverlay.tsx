@@ -4,6 +4,7 @@ type CelebrationOverlayProps = {
 
 export function CelebrationOverlay({ isVisible }: CelebrationOverlayProps) {
   if (!isVisible) return null;
+  const camdenHeadUrl = `${import.meta.env.BASE_URL}camden-head.png`;
 
   return (
     <div className="overlay" role="status" aria-live="polite">
@@ -12,7 +13,7 @@ export function CelebrationOverlay({ isVisible }: CelebrationOverlayProps) {
         <p>Camden is celebrating this one.</p>
         <div className="stick-figure-wrap">
           <img
-            src="/camden-head.png"
+            src={camdenHeadUrl}
             alt="Camden head"
             className="nephew-photo"
             onError={(event) => {
