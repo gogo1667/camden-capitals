@@ -7,6 +7,7 @@ export type QuizRound = {
   country: string;
   correctCapital: string;
   choices: string[];
+  kind?: "us_state";
 };
 
 function shuffle<T>(items: T[]): T[] {
@@ -26,8 +27,8 @@ function pickUniqueEntries(size: number, pool: CapitalEntry[]): CapitalEntry[] {
 }
 
 function getDistractors(correctCapital: string, allCapitals: string[]): string[] {
-  const candidates = allCapitals.filter((capital) => capital !== correctCapital);
-  return shuffle(candidates).slice(0, ANSWERS_PER_QUESTION - 1);
+  const unique = [...new Set(allCapitals)].filter((c) => c !== correctCapital);
+  return shuffle(unique).slice(0, ANSWERS_PER_QUESTION - 1);
 }
 
 export function buildRounds(
@@ -37,12 +38,13 @@ export function buildRounds(
   const selected = pickUniqueEntries(roundsPerGame, source);
   const allCapitals = source.map((entry) => entry.capital);
 
-  return selected.map(({ country, capital }) => {
+  return selected.map(({ country, capital, kind }) => {
     const distractors = getDistractors(capital, allCapitals);
     return {
       country,
       correctCapital: capital,
       choices: shuffle([capital, ...distractors]),
+      ...(kind === "us_state" ? { kind: "us_state" as const } : {}),
     };
   });
 }

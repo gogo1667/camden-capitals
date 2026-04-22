@@ -1,9 +1,11 @@
 export type CapitalEntry = {
   country: string;
   capital: string;
+  /** Set for US states so the UI can say “state” instead of “country”. */
+  kind?: "us_state";
 };
 
-export const CAPITALS: CapitalEntry[] = [
+const WORLD_CAPITALS: CapitalEntry[] = [
   { country: "Canada", capital: "Ottawa" },
   { country: "United States", capital: "Washington, D.C." },
   { country: "Mexico", capital: "Mexico City" },
@@ -40,3 +42,59 @@ export const CAPITALS: CapitalEntry[] = [
   { country: "Saudi Arabia", capital: "Riyadh" },
   { country: "United Arab Emirates", capital: "Abu Dhabi" },
 ];
+
+const US_STATE_CAPITALS: CapitalEntry[] = [
+  { country: "Alabama", capital: "Montgomery", kind: "us_state" },
+  { country: "Alaska", capital: "Juneau", kind: "us_state" },
+  { country: "Arizona", capital: "Phoenix", kind: "us_state" },
+  { country: "Arkansas", capital: "Little Rock", kind: "us_state" },
+  { country: "California", capital: "Sacramento", kind: "us_state" },
+  { country: "Colorado", capital: "Denver", kind: "us_state" },
+  { country: "Connecticut", capital: "Hartford", kind: "us_state" },
+  { country: "Delaware", capital: "Dover", kind: "us_state" },
+  { country: "Florida", capital: "Tallahassee", kind: "us_state" },
+  { country: "Georgia", capital: "Atlanta", kind: "us_state" },
+  { country: "Hawaii", capital: "Honolulu", kind: "us_state" },
+  { country: "Idaho", capital: "Boise", kind: "us_state" },
+  { country: "Illinois", capital: "Springfield", kind: "us_state" },
+  { country: "Indiana", capital: "Indianapolis", kind: "us_state" },
+  { country: "Iowa", capital: "Des Moines", kind: "us_state" },
+  { country: "Kansas", capital: "Topeka", kind: "us_state" },
+  { country: "Kentucky", capital: "Frankfort", kind: "us_state" },
+  { country: "Louisiana", capital: "Baton Rouge", kind: "us_state" },
+  { country: "Maine", capital: "Augusta", kind: "us_state" },
+  { country: "Maryland", capital: "Annapolis", kind: "us_state" },
+  { country: "Massachusetts", capital: "Boston", kind: "us_state" },
+  { country: "Michigan", capital: "Lansing", kind: "us_state" },
+  { country: "Minnesota", capital: "St. Paul", kind: "us_state" },
+  { country: "Mississippi", capital: "Jackson", kind: "us_state" },
+  { country: "Missouri", capital: "Jefferson City", kind: "us_state" },
+  { country: "Montana", capital: "Helena", kind: "us_state" },
+  { country: "Nebraska", capital: "Lincoln", kind: "us_state" },
+  { country: "Nevada", capital: "Carson City", kind: "us_state" },
+  { country: "New Hampshire", capital: "Concord", kind: "us_state" },
+  { country: "New Jersey", capital: "Trenton", kind: "us_state" },
+  { country: "New Mexico", capital: "Santa Fe", kind: "us_state" },
+  { country: "New York", capital: "Albany", kind: "us_state" },
+  { country: "North Carolina", capital: "Raleigh", kind: "us_state" },
+  { country: "North Dakota", capital: "Bismarck", kind: "us_state" },
+  { country: "Ohio", capital: "Columbus", kind: "us_state" },
+  { country: "Oklahoma", capital: "Oklahoma City", kind: "us_state" },
+  { country: "Oregon", capital: "Salem", kind: "us_state" },
+  { country: "Pennsylvania", capital: "Harrisburg", kind: "us_state" },
+  { country: "Rhode Island", capital: "Providence", kind: "us_state" },
+  { country: "South Carolina", capital: "Columbia", kind: "us_state" },
+  { country: "South Dakota", capital: "Pierre", kind: "us_state" },
+  { country: "Tennessee", capital: "Nashville", kind: "us_state" },
+  { country: "Texas", capital: "Austin", kind: "us_state" },
+  { country: "Utah", capital: "Salt Lake City", kind: "us_state" },
+  { country: "Vermont", capital: "Montpelier", kind: "us_state" },
+  { country: "Virginia", capital: "Richmond", kind: "us_state" },
+  { country: "Washington", capital: "Olympia", kind: "us_state" },
+  { country: "West Virginia", capital: "Charleston", kind: "us_state" },
+  { country: "Wisconsin", capital: "Madison", kind: "us_state" },
+  { country: "Wyoming", capital: "Cheyenne", kind: "us_state" },
+];
+
+/** World countries + all 50 US states (bigger pool for 10-question games). */
+export const CAPITALS: CapitalEntry[] = [...WORLD_CAPITALS, ...US_STATE_CAPITALS];

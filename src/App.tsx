@@ -27,7 +27,7 @@ function App() {
 
   const subtitle = useMemo(() => {
     if (!hasStarted) {
-      return "10 rounds. Pick the capital. Get it right and celebrate!";
+      return "10 rounds. World countries and US states — get it right and celebrate!";
     }
     return "Choose one answer each round.";
   }, [hasStarted]);

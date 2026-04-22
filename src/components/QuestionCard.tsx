@@ -7,17 +7,19 @@ type QuestionCardProps = {
 };
 
 export function QuestionCard({ round, selectedAnswer, onPickAnswer }: QuestionCardProps) {
+  const place = round.kind === "us_state" ? "this state" : "this country";
+
   return (
     <section className="card question-card">
-      <p className="prompt">What is the capital of:</p>
-      <h2>{round.country}?</h2>
+      <p className="prompt">What is the capital of {place}?</p>
+      <h2>{round.country}</h2>
       <div className="answer-grid">
-        {round.choices.map((answer) => {
+        {round.choices.map((answer, index) => {
           const isSelected = selectedAnswer === answer;
           return (
             <button
               type="button"
-              key={answer}
+              key={`${round.country}-${index}-${answer}`}
               className={`answer-btn${isSelected ? " selected" : ""}`}
               onClick={() => onPickAnswer(answer)}
               disabled={selectedAnswer !== null}
