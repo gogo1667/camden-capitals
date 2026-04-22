@@ -31,7 +31,14 @@ jobs:
         run: npm ci
 
       - name: Build site
+        env:
+          VITE_BASE: /${{ github.event.repository.name }}/
         run: npm run build
+
+      - name: Verify asset paths in dist/index.html
+        run: |
+          test -f dist/index.html
+          grep -q "/${{ github.event.repository.name }}/assets/" dist/index.html
 
       - name: Add SPA fallback
         run: cp dist/index.html dist/404.html
